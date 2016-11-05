@@ -12,11 +12,13 @@
   </div>
 </div>
 
+<dl class="dl-horizontal">
 <%= form_for(@message) do |f| %>
-  名前:
-  <%= f.text_field :name %>
+  <dt>名前:</dt>
+  <dd><%= f.text_field :name %></dd>
 
-  内容:
-  <%= f.text_field :body %>
+  <dt>内容:</dt>
+  <dd><%= f.text_area :body %></dd>
+</dl>
   <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>

@@ -4,4 +4,4 @@ class MessagesController < ApplicationController
     # Messageを全て取得する。
     @messages = Message.all
   end
-  # 中略
+  # 中略 ^
