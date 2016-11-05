@@ -1,8 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MessageBoard</title>
+</head>
+
+<body>
 <div class="panel panel-default">
   <div class="panel-heading">
     メッセージ一覧
   </div>
-    
+
+<form class="form-horizontal">
+  <div class="form-group">    
   <div class="panel-body">
     <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
@@ -12,11 +24,22 @@
   </div>
 </div>
 
+<div class="form-group"> 
 <%= form_for(@message) do |f| %>
   名前:
   <%= f.text_field :name %>
+</div>
 
+<div class="form-group"> 
   内容:
-  <%= f.text_field :body %>
+  <%= f.text_area :body %>
+</div>
+<div class="form-group"> 
   <%= f.submit class: "btn btn-sm btn-primary" %>
+</div>
 <% end %>
+
+</form>
+</div>
+</body>
+</html>
