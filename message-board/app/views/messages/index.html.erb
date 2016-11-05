@@ -1,24 +1,36 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    メッセージ一覧
-  </div>
-    
-  <div class="panel-body">
-    <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-      <%= message.body %>
-      <br>
-    <% end %>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Mariko Okuizumi">
+    <title>MessageBoard</title>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        メッセージ一覧
+        </div>
+        <div class="panel-body">
+            <% @messages.each do |message| %>
+            <span class="label label-info"><%= message.name %></span>
+            <%= message.body %>
+            <br>
+                <% end %>
+        </div>
+    </div>
 
-<dl class="dl-horizontal">
-<%= form_for(@message) do |f| %>
-  <dt>名前:</dt>
-  <dd><%= f.text_field :name %></dd>
-
-  <dt>内容:</dt>
-  <dd><%= f.text_area :body %></dd>
-</dl>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <%= form_for(@message) do |f| %>
+            <label for="inputname" class="col-sm-2 control-label">名前:</lavel>
+            <div class="col-sm-10"><%= f.text_field :name %></div>
+            <label for="inputname" class="col-sm-2 control-label">内容:</label>
+            <div class="col-sm-10"><%= f.text_area :body %></div>
+        </div>
   <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
+</form>
+</body>
+</html>
